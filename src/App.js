@@ -3,7 +3,7 @@ import "./sass/style.scss";
 import Home from "./pages/Home.js";
 
 function App() {
-  return <App></App>;
+  return <Home />;
 }
 
 export default App;
