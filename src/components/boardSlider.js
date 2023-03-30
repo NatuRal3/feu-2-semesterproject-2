@@ -1,6 +1,6 @@
 import Carousel from "react-bootstrap/Carousel";
 
-import imgCarousel1 from "../assets/carousel/carousel-1.jpg";
+import imgCarousel1 from "../assets/carousel/bust-aurelius.jpg";
 import imgCarousel2 from "../assets/carousel/carousel-2.jpg";
 import imgCarousel3 from "../assets/carousel/carousel-3.jpg";
 
