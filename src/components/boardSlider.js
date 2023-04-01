@@ -28,6 +28,9 @@ function BoardSlider() {
           <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
         </Carousel.Caption>
       </Carousel.Item>
+      <Carousel.Item>
+        <div class="carousel4"></div>
+      </Carousel.Item>
     </Carousel>
   );
 }

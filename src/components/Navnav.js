@@ -20,6 +20,10 @@ function Navnav() {
               <NavDropdown.Divider />
               <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
             </NavDropdown>
+            <Nav.Link href="login"></Nav.Link>
+            <Nav.Link href="signup"></Nav.Link>
+            <Nav.Link href="username"></Nav.Link>
+            <Nav.Link href="credits"></Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
