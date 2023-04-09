@@ -28,6 +28,14 @@ function loginUserAPI(event) {
     })
     .then((data) => {
       console.log(data);
+      const userSessionData = {
+        userName: data.name,
+        userEmail: data.email,
+        userCredits: data.credits,
+        userAvatar: data.avatar,
+        userAccessToken: data.accessToken,
+      };
+      localStorage.setItem("userSessionData", JSON.stringify(userSessionData));
     })
     .catch((error) => {
       console.error("Error:", error);
