@@ -1,3 +1,5 @@
+import userInfo from "./userInfo";
+
 function sessionStatus() {
   let activeSession;
 
@@ -6,6 +8,7 @@ function sessionStatus() {
 
   if (userAccessToken) {
     activeSession = true;
+    userInfo();
   } else {
     activeSession = false;
   }

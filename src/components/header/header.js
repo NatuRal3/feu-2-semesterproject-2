@@ -3,9 +3,11 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import removeLocalStorage from "../../services/logout.js";
 import sessionStatus from "../../tools/sessionStatus.js";
+import userInfo from "../../tools/userInfo.js";
 
 function Navnav() {
   const activeSession = sessionStatus();
+  const { userName, userCredits } = userInfo();
 
   return (
     <Navbar bg="light" expand="lg">
@@ -17,12 +19,15 @@ function Navnav() {
             <Nav.Link href="home">Home</Nav.Link>
             {activeSession ? null : <Nav.Link href="login">Login</Nav.Link>}
             {activeSession ? null : <Nav.Link href="register">Register</Nav.Link>}
+            {activeSession ? <Nav.Link href="profile">Profile</Nav.Link> : null}
             {activeSession ? (
               <Nav.Link href="logout" onClick={removeLocalStorage}>
                 Logout
               </Nav.Link>
             ) : null}
           </Nav>
+          {activeSession ? <p>Welcome, {userName} </p> : null}
+          {activeSession ? <p>C: {userCredits}</p> : null}
         </Navbar.Collapse>
       </Container>
     </Navbar>
