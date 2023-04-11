@@ -1,7 +1,7 @@
 import React from "react";
 import Forms from "../components/forms/Forms.js";
 import registerUserApi from "../services/apiRegister.js";
-import Button from "react-bootstrap/Button";
+import Buttons from "../components/buttons/Buttons.js";
 
 function Register() {
   return (
@@ -26,10 +26,7 @@ function Register() {
         type="password"
         placeholder="Minimum 8 characters"
       />
-
-      <Button variant="primary" type="submit" onClick={registerUserApi}>
-        Register
-      </Button>
+      <Buttons text="Register" variant="primary" type="submit" onClick={registerUserApi} />
     </>
   );
 }
