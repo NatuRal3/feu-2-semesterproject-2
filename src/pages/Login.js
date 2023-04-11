@@ -2,26 +2,22 @@ import React from "react";
 import loginUserAPI from "../services/apiLogin";
 
 import Button from "react-bootstrap/Button";
-import Form from "react-bootstrap/Form";
+import Forms from "../components/forms/Forms";
 
 function Login() {
   return (
     <>
-      <Form>
-        <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Label>Email address</Form.Label>
-          <Form.Control type="email" placeholder="Enter email" />
-        </Form.Group>
+      <Forms
+        controlId="formBasicEmail"
+        label="Email/Username"
+        type="email"
+        placeholder="username@stud.noroff.no"
+      />
+      <Forms controlId="formBasicPassword" label="Password" type="password" placeholder="" />
 
-        <Form.Group className="mb-3" controlId="formBasicPassword">
-          <Form.Label>Password</Form.Label>
-          <Form.Control type="password" placeholder="Password" />
-        </Form.Group>
-
-        <Button variant="primary" type="submit" onClick={loginUserAPI}>
-          Login
-        </Button>
-      </Form>
+      <Button variant="primary" type="submit" onClick={loginUserAPI}>
+        Login
+      </Button>
     </>
   );
 }

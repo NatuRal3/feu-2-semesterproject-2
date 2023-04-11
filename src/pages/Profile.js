@@ -9,9 +9,6 @@ function Profile() {
   return (
     <>
       <Tile title="Avatar" subtitle={userName} />
-      <Button variant="primary" type="submit" onClick={uploadAvatar}>
-        Upload
-      </Button>
       <Tile title="Username" subtitle={userName} />
       <Tile title="Mail" subtitle={userEmail} />
       <Tile title="Credits" subtitle={userCredits} />
