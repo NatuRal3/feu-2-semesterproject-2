@@ -6,10 +6,11 @@ function userInfo() {
   const userName = sessionData ? sessionData.userName : null;
   const userEmail = sessionData ? sessionData.userEmail : null;
   const userAvatar = sessionData ? sessionData.userAvatar : null;
+  const userAccessToken = sessionData ? sessionData.userAccessToken : null;
 
   console.log(userCredits);
   console.log(userName);
-  return { userCredits, userName, userEmail, userAvatar };
+  return { userCredits, userName, userEmail, userAvatar, userAccessToken };
 }
 
 export default userInfo;
