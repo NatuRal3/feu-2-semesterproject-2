@@ -4,7 +4,6 @@ import userInfo from "../tools/userInfo.js";
 import Buttons from "../components/buttons/Buttons";
 import uploadAvatar from "../tools/uploadAvatar.js";
 import Forms from "../components/forms/Forms";
-import { apiUserAvatarLink } from "../services/apiPresets.js";
 
 function Profile() {
   const { userName, userCredits, userEmail, userAvatar } = userInfo();
@@ -19,13 +18,9 @@ function Profile() {
     uploadAvatar(imageUrl)
       .then(() => {
         console.log("Avatar uploaded successfully!");
-        // Do something to indicate to the user that the upload was successful,
-        // e.g. display a success message or update the UI to show the new avatar.
       })
       .catch((error) => {
         console.error("Failed to upload avatar:", error);
-        // Do something to indicate to the user that the upload failed,
-        // e.g. display an error message or log the error to a service like Sentry.
       });
   };
 
