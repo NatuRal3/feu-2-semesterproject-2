@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import Tile from "../components/cards/Card";
+import Tile from "../components/Card";
 import userInfo from "../tools/userInfo.js";
-import Buttons from "../components/buttons/Buttons";
+import Buttons from "../components/Buttons";
 import uploadAvatar from "../tools/uploadAvatar.js";
-import Forms from "../components/forms/Forms";
+import Forms from "../components/Forms";
 
 function Profile() {
   const { userName, userCredits, userEmail, userAvatar } = userInfo();

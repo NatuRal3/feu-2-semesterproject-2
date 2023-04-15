@@ -1,6 +1,13 @@
+//Components
+@import "components/boardSlider";
+@import "components/buttons";
+@import "components/cards";
+@import "components/header";
+
+
+//Pages
+@import "pages/profile";
+
+//Partials
 @import "partials/colors";
 @import "partials/typography";
-@import "partials/boardSlider";
-@import "../components/header/header";
-@import "../components/cards/cards";
-@import "../pages/profile"

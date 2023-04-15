@@ -5,7 +5,7 @@ import Login from "./pages/Login.js";
 import Register from "./pages/Register.js";
 import Logout from "./pages/Logout.js";
 import Profile from "./pages/Profile";
-import Navnav from "./components/header/header";
+import Navnav from "./components/header";
 import NewListing from "./pages/NewListing";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 

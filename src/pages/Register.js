@@ -1,7 +1,7 @@
 import React from "react";
-import Forms from "../components/forms/Forms.js";
+import Forms from "../components/Forms.js";
 import registerUserApi from "../services/apiRegister.js";
-import Buttons from "../components/buttons/Buttons.js";
+import Buttons from "../components/Buttons.js";
 
 function Register() {
   return (

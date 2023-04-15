@@ -2,7 +2,7 @@ import React from "react";
 import loginUserAPI from "../services/apiLogin";
 
 import Button from "react-bootstrap/Button";
-import Forms from "../components/forms/Forms";
+import Forms from "../components/Forms";
 
 function Login() {
   return (

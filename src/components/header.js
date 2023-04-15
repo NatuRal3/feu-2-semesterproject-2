@@ -1,9 +1,9 @@
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import removeLocalStorage from "../../services/logout.js";
-import sessionStatus from "../../tools/sessionStatus.js";
-import userInfo from "../../tools/userInfo.js";
+import removeLocalStorage from "../services/logout.js";
+import sessionStatus from "../tools/sessionStatus.js";
+import userInfo from "../tools/userInfo.js";
 
 function Navnav() {
   const activeSession = sessionStatus();
