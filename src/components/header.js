@@ -17,6 +17,8 @@ function Navnav() {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link href="home">Home</Nav.Link>
+            <Nav.Link href="listings">Listings</Nav.Link>
+            <Nav.Link href="newlisting">New Listing</Nav.Link>
             {activeSession ? null : <Nav.Link href="login">Login</Nav.Link>}
             {activeSession ? null : <Nav.Link href="register">Register</Nav.Link>}
             {activeSession ? <Nav.Link href="profile">Profile</Nav.Link> : null}
