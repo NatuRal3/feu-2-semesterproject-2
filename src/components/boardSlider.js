@@ -1,8 +1,8 @@
 import Carousel from "react-bootstrap/Carousel";
 
-import imgCarousel1 from "../assets/carousel/bust-aurelius-web.jpg";
-import imgCarousel2 from "../assets/carousel/painting-church-web.jpg";
-import imgCarousel3 from "../assets/carousel/bust-romanSoldier-web.png";
+import imgCarousel1 from "../assets/images/bust-aurelius-web.jpg";
+import imgCarousel2 from "../assets/images/painting-church-web.jpg";
+import imgCarousel3 from "../assets/images/bust-romanSoldier-web.png";
 
 function BoardSlider() {
   return (
