@@ -1,7 +1,6 @@
 import React from "react";
 import loginUserAPI from "../services/apiLogin";
-
-import Button from "react-bootstrap/Button";
+import Buttons from "../components/Buttons";
 import Forms from "../components/Forms";
 
 function Login() {
@@ -14,10 +13,7 @@ function Login() {
         placeholder="username@stud.noroff.no"
       />
       <Forms controlId="formBasicPassword" label="Password" type="password" placeholder="" />
-
-      <Button variant="primary" type="submit" onClick={loginUserAPI}>
-        Login
-      </Button>
+      <Buttons text="Login" type="submit" onClick={loginUserAPI} />
     </>
   );
 }

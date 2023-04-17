@@ -21,7 +21,7 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/logout" element={<Logout />} />
         <Route path="/profile" element={<Profile />} />
-        <Route path="/listing" element={<Listings />} />
+        <Route path="/listings" element={<Listings />} />
         <Route path="/newlisting" element={<NewListing />} />
       </Routes>
     </BrowserRouter>
