@@ -6,15 +6,29 @@ import Buttons from "../components/Buttons";
 function newListing() {
   return (
     <>
-      <Forms controlId="formNewListingTitle" label="Name" type="text" placeholder="TEST ETST" />
+      <Forms controlId="formNewListingTitle" label="Name" type="text" placeholder="Artname" />
+      <Forms
+        controlId="formNewListingDescription"
+        label="Description"
+        type="textarea"
+        placeholder="Description"
+      />
       <Forms controlId="formNewListingDeadline" label="Deadline" type="date" />
-      <Forms controlId="formNewListingImage" label="File" type="file" />
-      <Buttons text="Register Listing" variant="primary" type="submit" onClick={registerListing} />
+      <Forms
+        controlId="formNewListingImage"
+        label="URL"
+        type="url"
+        value="{imageUrl}"
+        placeholder="Enter image url"
+      />
+      <Buttons
+        text="Register Listing"
+        variant="primary"
+        type="submit"
+        onClick={(event) => registerListing(event)}
+      />
     </>
   );
 }
 
 export default newListing;
-
-//title, deadline date, media gallery and description
-//Create a way to choose from all the pictures in the assets
