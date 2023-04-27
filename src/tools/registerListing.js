@@ -1,4 +1,5 @@
 import { apiRegisterListingLink } from "../services/apiPresets";
+import userInfo from "./userInfo";
 
 function registerListing(event) {
   event.preventDefault();
@@ -8,19 +9,21 @@ function registerListing(event) {
   const listingDescriptionInput = document.getElementById("formNewListingDescription").value;
   const listingImageInput = document.getElementById("formNewListingImage").value;
   const listingDeadlineInput = document.getElementById("formNewListingDeadline").value;
+  console.log(listingImageInput);
 
   const requestBody = {
     title: listingTitleInput,
     description: listingDescriptionInput,
     endsAt: listingDeadlineInput,
     tags: [],
-    media: listingImageInput,
+    media: [listingImageInput],
   };
 
   const requestOptions = {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
+      Authorization: `Bearer ${userInfo().userAccessToken}`,
     },
     body: JSON.stringify(requestBody),
   };
