@@ -1,5 +1,5 @@
 import React from "react";
-import BoardSlider from "../components/boardSlider";
+import BoardSlider from "../components/BoardSlider";
 
 function Home() {
   return (

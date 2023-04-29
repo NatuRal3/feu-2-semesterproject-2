@@ -1,8 +1,12 @@
 //SOURCE
 const apiLink = "https://api.noroff.dev/api/v1/";
 
-//GET
+// ACTIVE LISTINGS
+
 const activeListings = "auction/listings?_active=true&_seller=true";
+export const apiActiveListingsLink = `${apiLink}${activeListings}`;
+
+// USER CREDITS
 const userCredits = "auction/profiles/{name}/credits";
 
 //LOGIN
