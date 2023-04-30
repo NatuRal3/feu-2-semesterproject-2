@@ -4,11 +4,13 @@ import userInfo from "../tools/userInfo.js";
 import Buttons from "../components/Buttons";
 import uploadAvatar from "../tools/uploadAvatar.js";
 import Forms from "../components/Forms";
+import CardsGrid from "../components/CardsGrid";
 import getUserListings from "../tools/userListings";
 
 function Profile() {
   const { userName, userCredits, userEmail, userAvatar } = userInfo();
   const [imageUrl, setImageUrl] = useState("");
+  const [listings, setListings] = useState([]);
 
   const handleImageUrlChange = (event) => {
     setImageUrl(event.target.value);
@@ -24,6 +26,14 @@ function Profile() {
         console.error("Failed to upload avatar:", error);
       });
   };
+
+  useEffect(() => {
+    async function fetchData() {
+      const data = await getUserListings();
+      setListings(data);
+    }
+    fetchData();
+  }, []);
 
   return (
     <>
@@ -46,8 +56,9 @@ function Profile() {
       <Tile title="Mail" subtitle={userEmail} />
       <Tile title="Credits" subtitle={userCredits} />
       <h3>Your listings</h3>
+      <CardsGrid listings={listings} />
     </>
   );
 }
-getUserListings();
+
 export default Profile;

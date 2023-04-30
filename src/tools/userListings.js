@@ -10,9 +10,11 @@ async function getUserListings() {
     },
   });
   const data = await response.json();
-
   data.listings.map((listings) => {
-    console.log(listings);
+    const dataObjects = listings;
+    console.log(dataObjects);
+    return listings;
+    // return dataObjects;
   });
 }
 
