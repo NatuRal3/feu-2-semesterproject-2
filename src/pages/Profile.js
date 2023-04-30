@@ -30,15 +30,16 @@ function Profile() {
       <div className="userAvatar">
         <img src={`${userAvatar}`} alt="Profile avatar" />
       </div>
-
-      <Forms
-        controlId="formAvatarURL"
-        label="URL"
-        type="url"
-        placeholder="Enter avatar url"
-        value={imageUrl}
-        onChange={handleImageUrlChange}
-      />
+      <form>
+        <Forms
+          controlId="formAvatarURL"
+          label="URL"
+          type="url"
+          placeholder="Enter avatar url"
+          value={imageUrl}
+          onChange={handleImageUrlChange}
+        />
+      </form>
       <Buttons text="Upload" variant="primary" type="submit" onClick={handleUploadClick} />
       <Tile title="Username" subtitle={userName} />
       <Tile title="Mail" subtitle={userEmail} />

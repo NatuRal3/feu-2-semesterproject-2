@@ -5,7 +5,7 @@ import Forms from "../components/Forms";
 
 function Login() {
   return (
-    <>
+    <form>
       <Forms
         controlId="formBasicEmail"
         label="Email/Username"
@@ -14,7 +14,7 @@ function Login() {
       />
       <Forms controlId="formBasicPassword" label="Password" type="password" placeholder="" />
       <Buttons text="Login" type="submit" onClick={loginUserAPI} />
-    </>
+    </form>
   );
 }
 

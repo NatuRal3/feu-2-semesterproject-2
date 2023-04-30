@@ -2,8 +2,8 @@
 const apiLink = "https://api.noroff.dev/api/v1/";
 
 // ACTIVE LISTINGS
+const activeListings = "auction/listings?_active=true&sort=created&sortOrder=desc";
 
-const activeListings = "auction/listings?_active=true&_seller=true";
 export const apiActiveListingsLink = `${apiLink}${activeListings}`;
 
 // USER CREDITS

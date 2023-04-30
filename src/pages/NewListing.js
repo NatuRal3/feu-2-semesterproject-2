@@ -5,7 +5,7 @@ import Buttons from "../components/Buttons";
 
 function newListing() {
   return (
-    <>
+    <form>
       <Forms controlId="formNewListingTitle" label="Name" type="text" placeholder="Artname" />
       <Forms
         controlId="formNewListingDescription"
@@ -27,7 +27,7 @@ function newListing() {
         type="submit"
         onClick={(event) => registerListing(event)}
       />
-    </>
+    </form>
   );
 }
 

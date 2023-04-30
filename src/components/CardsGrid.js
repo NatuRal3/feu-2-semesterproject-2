@@ -2,18 +2,16 @@ import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 
-function CardsGrid(props) {
-  const { id, title, description, media } = props;
-
+function CardsGrid({ listings }) {
   return (
     <Row xs={1} md={2} className="g-4">
-      {Array.from({ length: 4 }).map((_, idx) => (
-        <Col key={idx}>
+      {listings.map((listing) => (
+        <Col key={listing.id}>
           <Card>
-            <Card.Img variant="top" src={media} />
+            <Card.Img variant="top" src={listing.media} />
             <Card.Body>
-              <Card.Title>{title}</Card.Title>
-              <Card.Text>{description}</Card.Text>
+              <Card.Title>{listing.title}</Card.Title>
+              <Card.Text>{listing.description}</Card.Text>
             </Card.Body>
           </Card>
         </Col>

@@ -13,19 +13,7 @@ function Listings() {
     fetchData();
   }, []);
 
-  return (
-    <>
-      {listings.map((listing) => (
-        <CardsGrid
-          key={listing.id}
-          id={listing.id}
-          title={listing.title}
-          description={listing.description}
-          media={listing.media}
-        />
-      ))}
-    </>
-  );
+  return <CardsGrid listings={listings} />;
 }
 
 export default Listings;
