@@ -9,13 +9,14 @@ function registerListing(event) {
   const listingDescriptionInput = document.getElementById("formNewListingDescription").value;
   const listingImageInput = document.getElementById("formNewListingImage").value;
   const listingDeadlineInput = document.getElementById("formNewListingDeadline").value;
+  const hardcodedTags = "AGERUP";
   console.log(listingImageInput);
 
   const requestBody = {
     title: listingTitleInput,
     description: listingDescriptionInput,
     endsAt: listingDeadlineInput,
-    tags: [],
+    tags: [hardcodedTags],
     media: [listingImageInput],
   };
 

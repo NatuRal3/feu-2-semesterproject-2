@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Tile from "../components/Card";
 import userInfo from "../tools/userInfo.js";
 import Buttons from "../components/Buttons";
 import uploadAvatar from "../tools/uploadAvatar.js";
 import Forms from "../components/Forms";
+import getUserListings from "../tools/userListings";
 
 function Profile() {
   const { userName, userCredits, userEmail, userAvatar } = userInfo();
@@ -44,8 +45,9 @@ function Profile() {
       <Tile title="Username" subtitle={userName} />
       <Tile title="Mail" subtitle={userEmail} />
       <Tile title="Credits" subtitle={userCredits} />
+      <h3>Your listings</h3>
     </>
   );
 }
-
+getUserListings();
 export default Profile;
