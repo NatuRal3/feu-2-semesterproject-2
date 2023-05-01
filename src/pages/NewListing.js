@@ -2,10 +2,11 @@ import React from "react";
 import Forms from "../components/Forms";
 import registerListing from "../tools/registerListing";
 import Buttons from "../components/Buttons";
+import { Form } from "react-bootstrap";
 
 function newListing() {
   return (
-    <form>
+    <Form>
       <Forms controlId="formNewListingTitle" label="Name" type="text" placeholder="Artname" />
       <Forms
         controlId="formNewListingDescription"
@@ -27,7 +28,7 @@ function newListing() {
         type="submit"
         onClick={(event) => registerListing(event)}
       />
-    </form>
+    </Form>
   );
 }
 

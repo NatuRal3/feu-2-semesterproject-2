@@ -1,6 +1,8 @@
 import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
+import Button from "react-bootstrap/Button";
+import deleteUserListings from "../tools/deleteUserListings";
 
 function CardsGrid({ listings }) {
   if (!listings || !listings.length) {
@@ -16,6 +18,7 @@ function CardsGrid({ listings }) {
             <Card.Body>
               <Card.Title>{listing.title}</Card.Title>
               <Card.Text>{listing.description}</Card.Text>
+              <Button onClick={() => deleteUserListings(listing.id)}>DELETE</Button>
             </Card.Body>
           </Card>
         </Col>

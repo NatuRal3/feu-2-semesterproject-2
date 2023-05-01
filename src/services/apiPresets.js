@@ -28,7 +28,10 @@ const userCreateBid = "auction/listings/{id}/bids";
 const userAvatar = "auction/profiles/{name}/media";
 export const apiUserAvatarLink = `${apiLink}${userAvatar}`;
 
+//REGISTER LISTING
 const userRegisterListing = "auction/listings";
 export const apiRegisterListingLink = `${apiLink}${userRegisterListing}`;
 
-//DELETE
+//DELETE LISTING
+const deleteListing = "auction/listings/";
+export const apiDeleteListingLink = `${apiLink}${deleteListing}`;

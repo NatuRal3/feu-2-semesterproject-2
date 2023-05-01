@@ -10,12 +10,9 @@ async function getUserListings() {
     },
   });
   const data = await response.json();
-  data.listings.map((listings) => {
-    const dataObjects = listings;
-    console.log(dataObjects);
-    return listings;
-    // return dataObjects;
-  });
+  console.log(data);
+  // Two requests are done here. Not shure why..
+  return data;
 }
 
 export default getUserListings;

@@ -30,8 +30,9 @@ function Profile() {
   useEffect(() => {
     async function fetchData() {
       const data = await getUserListings();
-      setListings(data);
+      setListings(data.listings);
     }
+    console.log("Hello im from useEffect");
     fetchData();
   }, []);
 
