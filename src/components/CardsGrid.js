@@ -19,6 +19,7 @@ function CardsGrid({ listings, delButton }) {
               <Card.Title>{listing.title}</Card.Title>
               <Card.Text>{listing.description}</Card.Text>
               {delButton && <Button onClick={() => deleteUserListings(listing.id)}>DELETE</Button>}
+              <Button>VIEW</Button>
             </Card.Body>
           </Card>
         </Col>
