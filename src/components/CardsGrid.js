@@ -4,7 +4,7 @@ import Row from "react-bootstrap/Row";
 import Button from "react-bootstrap/Button";
 import deleteUserListings from "../tools/deleteUserListings";
 
-function CardsGrid({ listings }) {
+function CardsGrid({ listings, delButton }) {
   if (!listings || !listings.length) {
     return <div>No listings to display</div>;
   }
@@ -18,7 +18,7 @@ function CardsGrid({ listings }) {
             <Card.Body>
               <Card.Title>{listing.title}</Card.Title>
               <Card.Text>{listing.description}</Card.Text>
-              <Button onClick={() => deleteUserListings(listing.id)}>DELETE</Button>
+              {delButton && <Button onClick={() => deleteUserListings(listing.id)}>DELETE</Button>}
             </Card.Body>
           </Card>
         </Col>

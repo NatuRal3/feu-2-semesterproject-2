@@ -4,7 +4,7 @@ import userInfo from "../tools/userInfo";
 const apiLink = "https://api.noroff.dev/api/v1/";
 
 // ACTIVE LISTINGS
-const activeListings = "auction/listings?_active=true&sort=created&sortOrder=desc";
+const activeListings = "auction/listings?_active=true&sort=created&_tag=AGERUP&sortOrder=desc";
 export const apiActiveListingsLink = `${apiLink}${activeListings}`;
 
 // USER LISTINGS

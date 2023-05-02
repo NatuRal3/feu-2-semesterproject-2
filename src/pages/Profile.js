@@ -57,7 +57,7 @@ function Profile() {
       <Tile title="Mail" subtitle={userEmail} />
       <Tile title="Credits" subtitle={userCredits} />
       <h3>Your listings</h3>
-      <CardsGrid listings={listings} />
+      <CardsGrid listings={listings} delButton={true} />
     </>
   );
 }
