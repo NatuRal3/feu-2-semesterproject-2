@@ -3,6 +3,7 @@ import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Button from "react-bootstrap/Button";
 import deleteUserListings from "../tools/deleteUserListings";
+import { Link } from "react-router-dom";
 
 function CardsGrid({ listings, delButton }) {
   if (!listings || !listings.length) {
@@ -19,7 +20,9 @@ function CardsGrid({ listings, delButton }) {
               <Card.Title>{listing.title}</Card.Title>
               <Card.Text>{listing.description}</Card.Text>
               {delButton && <Button onClick={() => deleteUserListings(listing.id)}>DELETE</Button>}
-              <Button>VIEW</Button>
+              <Link to={`/listingview/${listing.id}/`}>
+                <Button>VIEW</Button>
+              </Link>
             </Card.Body>
           </Card>
         </Col>

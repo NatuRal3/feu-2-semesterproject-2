@@ -1,3 +1,4 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 import "./sass/style.scss";
 import Home from "./pages/Home.js";
@@ -8,7 +9,7 @@ import Profile from "./pages/Profile";
 import Navnav from "./components/Header";
 import Listings from "./pages/Listings";
 import NewListing from "./pages/NewListing";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { ListingView } from "./pages/ListingViews.js";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route path="/profile" element={<Profile />} />
         <Route path="/listings" element={<Listings />} />
         <Route path="/newlisting" element={<NewListing />} />
+        <Route path="/listingview/:id" element={<ListingView />} />
       </Routes>
     </BrowserRouter>
   );
