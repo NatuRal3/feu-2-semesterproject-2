@@ -9,7 +9,7 @@ import Profile from "./pages/Profile";
 import Navnav from "./components/Header";
 import Listings from "./pages/Listings";
 import NewListing from "./pages/NewListing";
-import { ListingView } from "./pages/ListingViews.js";
+import ListingPage from "./pages/ListingPage";
 
 function App() {
   return (
@@ -24,7 +24,7 @@ function App() {
         <Route path="/profile" element={<Profile />} />
         <Route path="/listings" element={<Listings />} />
         <Route path="/newlisting" element={<NewListing />} />
-        <Route path="/listingview/:id" element={<ListingView />} />
+        <Route path="/listing/:listingId" element={<ListingPage />} />
       </Routes>
     </BrowserRouter>
   );
