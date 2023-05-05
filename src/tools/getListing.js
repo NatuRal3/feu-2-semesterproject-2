@@ -1,7 +1,7 @@
 import { apiViewListingLink } from "../services/apiPresets";
 
 async function getListing(listingId) {
-  const response = await fetch(`${apiViewListingLink}${listingId}`);
+  const response = await fetch(`${apiViewListingLink}${listingId}?_seller=true&_bids=true`);
   if (!response.ok) {
     throw new Error(`Failed to fetch listing ${listingId}`);
   }

@@ -6,6 +6,7 @@ function ListingPage() {
   const { listingId } = useParams();
   const [listing, setListing] = useState(null);
   const [daysLeft, setDaysLeft] = useState(null);
+  const [highestBid, setHighestBid] = useState(null);
 
   useEffect(() => {
     async function fetchData() {
@@ -23,6 +24,9 @@ function ListingPage() {
       const remainingData = Math.floor(endDate - dayDate);
       const daysLeft = parseInt(remainingData / (1000 * 60 * 60 * 24));
       setDaysLeft(daysLeft);
+
+      const highestBid = Math.max(...listing.bids.map((bid) => bid.amount));
+      setHighestBid(highestBid);
     }
   }, [listing]);
 
@@ -44,7 +48,7 @@ function ListingPage() {
           </div>
           <div className="flex row">
             <p>Bids: {listing._count.bids}</p>
-            <p>Highest bid:</p>
+            <p>Highest bid: {highestBid}</p>
           </div>
         </div>
       </div>
