@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import getListing from "../tools/getListing";
-import apiEngine from "../services/apiEngine";
+import { getListing } from "../services/apiEngine";
 import List from "../components/List";
 
 function ListingPage() {
@@ -13,7 +12,6 @@ function ListingPage() {
   useEffect(() => {
     async function fetchData() {
       const data = await getListing(listingId);
-      console.log(data);
       setListing(data);
       updateBids(data);
     }
