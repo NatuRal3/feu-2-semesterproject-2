@@ -1,6 +1,12 @@
 import React, { useEffect, useState } from "react";
-import getActiveListings from "../tools/activeListings";
 import CardsGrid from "../components/CardsGrid";
+import apiEngine from "../services/apiEngine";
+import { apiActiveListingsLink } from "../services/apiPresets";
+
+async function getActiveListings() {
+  const response = await apiEngine(apiActiveListingsLink, "GET");
+  return response;
+}
 
 function Listings() {
   const [listings, setListings] = useState([]);

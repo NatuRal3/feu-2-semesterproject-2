@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import getListing from "../tools/getListing";
+import apiEngine from "../services/apiEngine";
+import List from "../components/List";
 
 function ListingPage() {
   const { listingId } = useParams();
@@ -13,6 +15,7 @@ function ListingPage() {
       const data = await getListing(listingId);
       console.log(data);
       setListing(data);
+      updateBids(data);
     }
     fetchData();
   }, [listingId]);
@@ -24,11 +27,20 @@ function ListingPage() {
       const remainingData = Math.floor(endDate - dayDate);
       const daysLeft = parseInt(remainingData / (1000 * 60 * 60 * 24));
       setDaysLeft(daysLeft);
-
-      const highestBid = Math.max(...listing.bids.map((bid) => bid.amount));
-      setHighestBid(highestBid);
     }
   }, [listing]);
+
+  const updateBids = (data) => {
+    if (data) {
+      const highestBid = Math.max(...data.bids.map((bid) => bid.amount));
+      setHighestBid(highestBid);
+
+      const highLowBids = [...data.bids].sort((a, b) => b.amount - a.amount);
+      setListing((pListing) => {
+        return { ...pListing, bids: highLowBids };
+      });
+    }
+  };
 
   if (!listing) {
     return <div>Loading...</div>;
@@ -50,6 +62,16 @@ function ListingPage() {
             <p>Bids: {listing._count.bids}</p>
             <p>Highest bid: {highestBid}</p>
           </div>
+        </div>
+        <div>
+          {listing.bids.reverse().map((bid) => (
+            <List
+              key={bid.id}
+              amount={bid.amount}
+              bidderName={bid.bidderName}
+              created={bid.created}
+            />
+          ))}
         </div>
       </div>
     </div>
