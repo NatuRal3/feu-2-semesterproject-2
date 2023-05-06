@@ -1,4 +1,4 @@
-import { apiViewListingLink, apiActiveListingsLink } from "./apiPresets";
+import { apiViewListingLink, apiActiveListingsLink, apiPostBid } from "./apiPresets";
 
 export async function getListing(listingId) {
   const response = await apiEngine(
@@ -11,6 +11,11 @@ export async function getListing(listingId) {
 export async function getActiveListings() {
   const response = await apiEngine(apiActiveListingsLink, "GET");
   return response;
+}
+
+export async function placeBid(listingId) {
+  const bidAmount = document.getElementById("formPostBid").value;
+  console.log(bidAmount);
 }
 
 async function apiEngine(URL, method, body) {

@@ -1,6 +1,6 @@
 import userInfo from "../tools/userInfo";
 
-//SOURCE
+// SOURCE
 const apiLink = "https://api.noroff.dev/api/v1/";
 
 // ACTIVE LISTINGS
@@ -26,8 +26,6 @@ export const apiUserLoginLink = `${apiLink}${userLogin}`;
 const userRegister = "auction/auth/register";
 export const apiUserRegisterLink = `${apiLink}${userRegister}`;
 
-const userCreateBid = "auction/listings/{id}/bids";
-
 // UPLOAD AVATAR
 const userAvatar = "auction/profiles/{name}/media";
 export const apiUserAvatarLink = `${apiLink}${userAvatar}`;
@@ -39,3 +37,7 @@ export const apiRegisterListingLink = `${apiLink}${userRegisterListing}`;
 // DELETE LISTING
 const deleteListing = "auction/listings/";
 export const apiDeleteListingLink = `${apiLink}${deleteListing}`;
+
+// POST BID
+const postBid = "/auction/listings/{id}/bids}";
+export const apiPostBid = `${apiLink}${postBid}`;

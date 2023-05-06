@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { getListing } from "../services/apiEngine";
+import { getListing, placeBid } from "../services/apiEngine";
+
 import List from "../components/List";
+import Buttons from "../components/Buttons";
+import Forms from "../components/Forms";
 
 function ListingPage() {
   const { listingId } = useParams();
@@ -60,6 +63,10 @@ function ListingPage() {
             <p>Bids: {listing._count.bids}</p>
             <p>Highest bid: {highestBid}</p>
           </div>
+          <form>
+            <Forms controlId="formPostBid" type="number" placeholder="place a bid" />
+            <Buttons text="BID" type="submit" onClick={() => placeBid(listing.id)} />
+          </form>
         </div>
         <div>
           {listing.bids.reverse().map((bid) => (
