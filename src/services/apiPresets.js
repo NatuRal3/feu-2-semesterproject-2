@@ -27,7 +27,7 @@ const userRegister = "auction/auth/register";
 export const apiUserRegisterLink = `${apiLink}${userRegister}`;
 
 // UPLOAD AVATAR
-const userAvatar = "auction/profiles/{name}/media";
+const userAvatar = "auction/profiles";
 export const apiUserAvatarLink = `${apiLink}${userAvatar}`;
 
 // REGISTER LISTING

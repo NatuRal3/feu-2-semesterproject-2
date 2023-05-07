@@ -6,6 +6,7 @@ import {
   apiUserLoginLink,
   apiRegisterListingLink,
   apiUserRegisterLink,
+  apiUserAvatarLink,
 } from "./apiPresets";
 
 export async function registerUser(name, email, password) {
@@ -38,6 +39,11 @@ export async function getListing(listingId) {
 export async function getActiveListings() {
   const response = await apiEngine(apiActiveListingsLink, "GET");
   return response;
+}
+
+export async function updateUserAvatar(avatar) {
+  const { userName } = userInfo();
+  return await apiEngine(`${apiUserAvatarLink}/${userName}/media`, "PUT", { avatar });
 }
 
 // export async function placeBid(listingId) {
