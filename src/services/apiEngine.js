@@ -5,7 +5,12 @@ import {
   apiPostBid,
   apiUserLoginLink,
   apiRegisterListingLink,
+  apiUserRegisterLink,
 } from "./apiPresets";
+
+export async function registerUser(name, email, password) {
+  return await apiEngine(apiUserRegisterLink, "POST", { name, email, password, avatar: "" });
+}
 
 export async function loginUser(email, password) {
   return await apiEngine(apiUserLoginLink, "POST", { email, password });
@@ -26,6 +31,7 @@ export async function getListing(listingId) {
     `${apiViewListingLink}${listingId}?_seller=true&_bids=true`,
     "GET"
   );
+  console.log(`${apiViewListingLink}${listingId}?_seller=true&_bids=true`);
   return response;
 }
 
