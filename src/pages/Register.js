@@ -3,8 +3,10 @@ import { Button, Form } from "react-bootstrap";
 import FormGroup from "../components/FormGroup";
 import validateForm from "../tools/validateForm";
 import { registerUser } from "../services/apiEngine";
+import { useNavigate } from "react-router-dom";
 
 function Register() {
+  const navigate = useNavigate();
   const submit = (event) => {
     event.preventDefault();
 
@@ -13,7 +15,7 @@ function Register() {
     if (data) {
       registerUser(data.name, data.email, data.password)
         .then((data) => {
-          console.log("DATA", data);
+          navigate("/login");
         })
         .catch((error) => {
           console.log("ERROR", error);

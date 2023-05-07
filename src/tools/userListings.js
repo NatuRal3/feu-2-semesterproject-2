@@ -10,7 +10,7 @@ async function getUserListings() {
     },
   });
   const data = await response.json();
-  console.log(data);
+
   return data;
 }
 

@@ -10,7 +10,7 @@ async function deleteUserListings(listingId) {
     },
   });
   const data = await response.json();
-  console.log(response);
+
   window.location.reload();
   return data;
 }

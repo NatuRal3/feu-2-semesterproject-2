@@ -15,7 +15,6 @@ export async function registerUser(name, email, password) {
 }
 
 export async function updateBid(id, amount) {
-  console.log(amount);
   return await apiEngine(`${apiPostBidLink}/${id}/bids`, "POST", { amount });
 }
 
@@ -54,7 +53,7 @@ export async function getListing(listingId) {
     `${apiViewListingLink}${listingId}?_seller=true&_bids=true`,
     "GET"
   );
-  console.log(`${apiViewListingLink}${listingId}?_seller=true&_bids=true`);
+
   return response;
 }
 

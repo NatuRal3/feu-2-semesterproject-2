@@ -14,11 +14,10 @@ function NewListing() {
     if (formData) {
       registerListing(formData.title, formData.description, formData.endsAt, formData.media)
         .then((data) => {
-          console.log(data);
           navigate(`/listing/${data.id}`);
         })
         .catch((error) => {
-          console.log("ERROR:", error);
+          console.log("Error:", error);
         });
     }
   };

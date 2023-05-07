@@ -44,7 +44,6 @@ function Profile() {
       const data = await getUserListings();
       setListings(data.listings);
     }
-    console.log("Hello im from useEffect");
     fetchData();
   }, []);
 
