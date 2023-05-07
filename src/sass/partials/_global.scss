@@ -1,0 +1,76 @@
+.container{
+    max-width: 900px;
+    margin-top: 50px;
+}
+
+.userinfo{
+    margin: 20px 0px;
+}
+
+.btn-primary{
+    background-color: $color-accent-prim;
+    border-color: $color-accent-prim;
+}
+
+.btn-primary:hover{
+    background-color: $color-primary;
+    border-color: $color-primary;
+}
+
+.navbar-nav{
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+.container-listing {
+    margin-top: 3rem;
+}
+.container-listing img{
+    width: 400px;
+}
+
+.card{
+    margin-top: 10px;
+}
+
+.card-listing{
+    width: 900px;
+}
+.card-info-media{
+    padding: 0rem 5rem;
+}
+.card-info-txt{
+    padding: 0rem 5rem;
+}
+
+.listing{
+    max-width: 900px;
+}
+
+.bid{
+    padding: 0rem 5rem;
+    max-width: 900px;
+}
+.content-listings{
+    max-width: 800px;
+}
+.history{
+    padding: 2rem 5rem;
+    max-width: 900px;
+}
+.userAvatar img{
+    
+    max-height: 200px;
+}
+
+.newlisting{
+    
+    max-width: 800px;
+    padding: 2rem 5rem;
+}
+.login{
+
+    max-width: 800px;
+    padding: 2rem 5rem;
+}
+

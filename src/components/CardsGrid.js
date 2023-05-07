@@ -25,8 +25,12 @@ function CardsGrid({ listings, delButton }) {
             <Card.Body>
               <Card.Title>{listing.title}</Card.Title>
               <Card.Text>{listing.description}</Card.Text>
-              {delButton && <Button onClick={() => deleteUserListings(listing.id)}>DELETE</Button>}
-              <Button>VIEW</Button>
+              <div className="flex space-evenly">
+                {delButton && (
+                  <Button onClick={() => deleteUserListings(listing.id)}>DELETE</Button>
+                )}
+                <Button>VIEW</Button>
+              </div>
             </Card.Body>
           </Card>
         </Col>

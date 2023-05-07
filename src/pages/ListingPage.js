@@ -70,21 +70,26 @@ function ListingPage() {
 
   return (
     <div className="container-listing flex center">
-      <div className="card-listing flex ">
-        <div className="card-info-media">
-          <img src={listing.media} alt={listing.title} />
-        </div>
-        <div className="card-info-txt flex column">
-          <div>
-            <h1>{listing.title}</h1>
-            <p>{listing.description}</p>
-            <p>Ends in: {daysLeft} days</p>
-          </div>
-          <div className="flex row">
-            <p>Bids: {listing._count.bids}</p>
-            <p>Highest bid: {highestBid === 0 ? "No bids yet" : highestBid}</p>
+      <div className="card-listing flex column">
+        <div className="center-items allign flex row">
+          <div className="card-info-media center-items">
+            <img src={listing.media} alt={listing.title} />
           </div>
 
+          <div className="card-info-txt flex column">
+            <div>
+              <h1>{listing.title}</h1>
+              <p>{listing.description}</p>
+              <p>Ends in: {daysLeft} days</p>
+            </div>
+
+            <div className="flex row">
+              <p>Bids: {listing._count.bids}</p>
+              <p>Highest bid: {highestBid === 0 ? "No bids yet" : highestBid}</p>
+            </div>
+          </div>
+        </div>
+        <div className="bid flex column">
           <Form onSubmit={submitBid}>
             <FormGroup
               required={true}
@@ -97,7 +102,8 @@ function ListingPage() {
             <Button type="submit">Bid</Button>
           </Form>
         </div>
-        <div>
+
+        <div className="history center-items flex column">
           {listing.bids.reverse().map((bid) => (
             <List
               key={bid.id}

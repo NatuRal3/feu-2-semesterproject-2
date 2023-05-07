@@ -24,36 +24,38 @@ function NewListing() {
   };
 
   return (
-    <Form onSubmit={submit}>
-      <FormGroup
-        name="title"
-        label="Listing Name"
-        required={true}
-        minLength={5}
-        type="text"
-        placeholder="Artname"
-      />
+    <div className="flex column center-items">
+      <Form className="newlisting" onSubmit={submit}>
+        <FormGroup
+          name="title"
+          label="Listing Name"
+          required={true}
+          minLength={5}
+          type="text"
+          placeholder="Artname"
+        />
 
-      <FormGroup
-        name="description"
-        required={true}
-        minLength={20}
-        label="Description"
-        type="textarea"
-        placeholder="Description"
-      />
+        <FormGroup
+          name="description"
+          required={true}
+          minLength={20}
+          label="Description"
+          type="textarea"
+          placeholder="Description"
+        />
 
-      <FormGroup name="endsAt" required={true} label="Deadline" type="date" />
+        <FormGroup name="endsAt" required={true} label="Deadline" type="date" />
 
-      <FormGroup
-        name="media"
-        required={true}
-        label="URL"
-        type="url"
-        placeholder="Enter image url"
-      />
-      <Button type="submit"> Register Listing </Button>
-    </Form>
+        <FormGroup
+          name="media"
+          required={true}
+          label="URL"
+          type="url"
+          placeholder="Enter image url"
+        />
+        <Button type="submit"> Register Listing </Button>
+      </Form>
+    </div>
   );
 }
 

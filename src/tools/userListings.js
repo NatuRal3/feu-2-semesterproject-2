@@ -11,7 +11,6 @@ async function getUserListings() {
   });
   const data = await response.json();
   console.log(data);
-  // Two requests are done here. Not shure why..
   return data;
 }
 

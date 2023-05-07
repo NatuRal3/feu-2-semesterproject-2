@@ -49,31 +49,30 @@ function Profile() {
   }, []);
 
   return (
-    <>
-      <Tile title="Avatar" subtitle={userName} />
-
-      <div className="userAvatar">
+    <div className="container">
+      <div className="userAvatar flex center-items column">
         <img src={`${userAvatar}`} alt="Profile avatar" />
+
+        <Form onSubmit={handleUpload}>
+          <FormGroup
+            required={true}
+            name="imageUrl"
+            label="Update Avatar"
+            type="url"
+            placeholder="Enter avatar url"
+          />
+
+          <Button type="submit">Update</Button>
+        </Form>
       </div>
-
-      <Form onSubmit={handleUpload}>
-        <FormGroup
-          required={true}
-          name="imageUrl"
-          label="URL"
-          type="url"
-          placeholder="Enter avatar url"
-        />
-
-        <Button type="submit">Update</Button>
-      </Form>
-
-      <Tile title="Username" subtitle={userName} />
-      <Tile title="Mail" subtitle={userEmail} />
-      <Tile title="Credits" subtitle={userCredits} />
+      <div className="userinfo flex row">
+        <Tile title="Username" subtitle={userName} />
+        <Tile title="Mail" subtitle={userEmail} />
+        <Tile title="Credits" subtitle={userCredits} />
+      </div>
       <h3>Your listings</h3>
       <CardsGrid listings={listings} delButton={true} />
-    </>
+    </div>
   );
 }
 

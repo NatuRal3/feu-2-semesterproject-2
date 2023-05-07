@@ -22,36 +22,40 @@ function Register() {
   };
 
   return (
-    <Form onSubmit={submit}>
-      <FormGroup
-        required={true}
-        minLength={5}
-        name="name"
-        label="Username"
-        type="text"
-        placeholder="Enter username"
-      />
+    <div className="flex column center-items">
+      <div className="login">
+        <Form onSubmit={submit}>
+          <FormGroup
+            required={true}
+            minLength={5}
+            name="name"
+            label="Username"
+            type="text"
+            placeholder="Enter username"
+          />
 
-      <FormGroup
-        required={true}
-        minLength={5}
-        name="email"
-        label="Email Address"
-        type="email"
-        placeholder="Enter your @stud.noroff.no email"
-      />
+          <FormGroup
+            required={true}
+            minLength={5}
+            name="email"
+            label="Email Address"
+            type="email"
+            placeholder="Enter your @stud.noroff.no email"
+          />
 
-      <FormGroup
-        required={true}
-        minLength={8}
-        name="password"
-        label="Password"
-        type="password"
-        placeholder="Minimum 8 characters"
-      />
+          <FormGroup
+            required={true}
+            minLength={8}
+            name="password"
+            label="Password"
+            type="password"
+            placeholder="Minimum 8 characters"
+          />
 
-      <Button type="submit">Register</Button>
-    </Form>
+          <Button type="submit">Register</Button>
+        </Form>
+      </div>
+    </div>
   );
 }
 
