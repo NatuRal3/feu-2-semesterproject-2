@@ -1,20 +1,61 @@
 import React from "react";
-import loginUserAPI from "../services/apiLogin";
-import Buttons from "../components/Buttons";
-import Forms from "../components/Forms";
+import { loginUser } from "../services/apiEngine";
+import FormGroup from "../components/FormGroup";
+import validateForm from "../tools/validateForm";
+import { Form, Button } from "react-bootstrap";
 
 function Login() {
+  const login = async (event) => {
+    event.preventDefault();
+
+    const data = validateForm(event.currentTarget);
+
+    if (data) {
+      loginUser(data.email, data.password)
+        .then((data) => {
+          localStorage.setItem(
+            "userSessionData",
+            JSON.stringify({
+              userName: data.name,
+              userEmail: data.email,
+              userCredits: data.credits,
+              userAvatar: data.avatar,
+              userAccessToken: data.accessToken,
+            })
+          );
+        })
+        .catch((error) => {
+          switch (error.status) {
+            case 401:
+              console.error("Wrong username or password");
+              break;
+            default:
+              console.error("There was a problem");
+          }
+        });
+    }
+  };
+
   return (
-    <form>
-      <Forms
-        controlId="formBasicEmail"
+    <Form onSubmit={login}>
+      <FormGroup
         label="Email/Username"
+        required={true}
+        minLength={5}
         type="email"
         placeholder="username@stud.noroff.no"
+        name="email"
       />
-      <Forms controlId="formBasicPassword" label="Password" type="password" placeholder="" />
-      <Buttons text="Login" type="submit" onClick={loginUserAPI} />
-    </form>
+      <FormGroup
+        label="Password"
+        required={true}
+        minLength={8}
+        type="password"
+        name="password"
+        placeholder="* * * * * * * *"
+      />
+      <Button type="submit"> Login </Button>
+    </Form>
   );
 }
 

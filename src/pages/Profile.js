@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import Tile from "../components/Card";
 import userInfo from "../tools/userInfo.js";
-import Buttons from "../components/Buttons";
 import uploadAvatar from "../tools/uploadAvatar.js";
-import Forms from "../components/Forms";
 import CardsGrid from "../components/CardsGrid";
 import getUserListings from "../tools/userListings";
+import FormGroup from "../components/FormGroup";
+import { Form, Button } from "react-bootstrap";
 
 function Profile() {
   const { userName, userCredits, userEmail, userAvatar } = userInfo();
@@ -42,8 +42,8 @@ function Profile() {
       <div className="userAvatar">
         <img src={`${userAvatar}`} alt="Profile avatar" />
       </div>
-      <form>
-        <Forms
+      <Form>
+        <FormGroup
           controlId="formAvatarURL"
           label="URL"
           type="url"
@@ -51,8 +51,8 @@ function Profile() {
           value={imageUrl}
           onChange={handleImageUrlChange}
         />
-      </form>
-      <Buttons text="Upload" variant="primary" type="submit" onClick={handleUploadClick} />
+      </Form>
+      <Button text="Upload" variant="primary" type="submit" onClick={handleUploadClick} />
       <Tile title="Username" subtitle={userName} />
       <Tile title="Mail" subtitle={userEmail} />
       <Tile title="Credits" subtitle={userCredits} />

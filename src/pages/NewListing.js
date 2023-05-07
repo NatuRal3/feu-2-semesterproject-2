@@ -1,33 +1,54 @@
 import React from "react";
-import Forms from "../components/Forms";
-import registerListing from "../tools/registerListing";
-import Buttons from "../components/Buttons";
-import { Form } from "react-bootstrap";
+import FormGroup from "../components/FormGroup";
+import { registerListing } from "../services/apiEngine";
+import { Form, Button } from "react-bootstrap";
+import validateForm from "../tools/validateForm";
 
 function newListing() {
+  const submit = async (event) => {
+    event.preventDefault();
+    const formData = validateForm(event.currentTarget);
+    if (formData) {
+      registerListing(formData.title, formData.description, formData.endsAt, formData.media)
+        .then((data) => {
+          console.log(data);
+        })
+        .catch((error) => {
+          console.log("ERROR:", error);
+        });
+    }
+  };
+
   return (
-    <Form>
-      <Forms controlId="formNewListingTitle" label="Name" type="text" placeholder="Artname" />
-      <Forms
-        controlId="formNewListingDescription"
+    <Form onSubmit={submit}>
+      <FormGroup
+        name="title"
+        label="Listing Name"
+        required={true}
+        minLength={5}
+        type="text"
+        placeholder="Artname"
+      />
+
+      <FormGroup
+        name="description"
+        required={true}
+        minLength={20}
         label="Description"
         type="textarea"
         placeholder="Description"
       />
-      <Forms controlId="formNewListingDeadline" label="Deadline" type="date" />
-      <Forms
-        controlId="formNewListingImage"
+
+      <FormGroup name="endsAt" required={true} label="Deadline" type="date" />
+
+      <FormGroup
+        name="media"
+        required={true}
         label="URL"
         type="url"
-        value="{imageUrl}"
         placeholder="Enter image url"
       />
-      <Buttons
-        text="Register Listing"
-        variant="primary"
-        type="submit"
-        onClick={(event) => registerListing(event)}
-      />
+      <Button type="submit"> Register Listing </Button>
     </Form>
   );
 }

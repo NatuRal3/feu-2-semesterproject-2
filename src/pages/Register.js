@@ -1,32 +1,34 @@
 import React from "react";
-import Forms from "../components/Forms.js";
 import registerUserApi from "../services/apiRegister.js";
-import Buttons from "../components/Buttons.js";
+import { Form, Button } from "react-bootstrap";
+import FormGroup from "../components/FormGroup.js";
 
 function Register() {
   return (
     <>
-      <Forms
-        controlId="formBasicName"
-        label="Username"
-        type="name"
-        placeholder="Desired username"
-      />
+      <Form>
+        <FormGroup
+          controlId="formBasicName"
+          label="Username"
+          type="name"
+          placeholder="Desired username"
+        />
 
-      <Forms
-        controlId="formBasicEmail"
-        label="Email Address"
-        type="email"
-        placeholder="Enter your @stud.noroff.no email"
-      />
+        <FormGroup
+          controlId="formBasicEmail"
+          label="Email Address"
+          type="email"
+          placeholder="Enter your @stud.noroff.no email"
+        />
 
-      <Forms
-        controlId="formBasicPassword"
-        label="Password"
-        type="password"
-        placeholder="Minimum 8 characters"
-      />
-      <Buttons text="Register" variant="primary" type="submit" onClick={registerUserApi} />
+        <FormGroup
+          controlId="formBasicPassword"
+          label="Password"
+          type="password"
+          placeholder="Minimum 8 characters"
+        />
+        <Button text="Register" variant="primary" type="submit" onClick={registerUserApi} />
+      </Form>
     </>
   );
 }
