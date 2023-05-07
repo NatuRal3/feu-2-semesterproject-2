@@ -34,7 +34,7 @@ function Listings() {
     } else {
       setListings(originalListings);
     }
-  }, [searchTerm]);
+  }, [searchTerm, originalListings]);
   return (
     <div className="container-listings flex center-items column">
       <InputGroup size="sm" className="mb-3">
