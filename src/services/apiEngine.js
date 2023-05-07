@@ -2,15 +2,37 @@ import userInfo from "../tools/userInfo";
 import {
   apiViewListingLink,
   apiActiveListingsLink,
-  apiPostBid,
   apiUserLoginLink,
   apiRegisterListingLink,
   apiUserRegisterLink,
   apiUserAvatarLink,
+  apiPostBidLink,
+  apiUserCreditsLink,
 } from "./apiPresets";
 
 export async function registerUser(name, email, password) {
   return await apiEngine(apiUserRegisterLink, "POST", { name, email, password, avatar: "" });
+}
+
+export async function updateBid(id, amount) {
+  console.log(amount);
+  return await apiEngine(`${apiPostBidLink}/${id}/bids`, "POST", { amount });
+}
+
+export async function updateUserCredits() {
+  const userData = userInfo();
+
+  apiEngine(`${apiUserCreditsLink}/${userData.userName}/credits`, "GET").then((data) => {
+    localStorage.setItem(
+      "userSessionData",
+      JSON.stringify({
+        ...userData,
+        userCredits: data.credits,
+      })
+    );
+
+    window.location.reload();
+  });
 }
 
 export async function loginUser(email, password) {
@@ -45,11 +67,6 @@ export async function updateUserAvatar(avatar) {
   const { userName } = userInfo();
   return await apiEngine(`${apiUserAvatarLink}/${userName}/media`, "PUT", { avatar });
 }
-
-// export async function placeBid(listingId) {
-//   const bidAmount = document.getElementById("formPostBid").value;
-//   const response = await apiEngine(apiPostBid, "POST");
-// }
 
 async function apiEngine(URL, method, body) {
   const allowedMethods = ["GET", "POST", "PUT", "DELETE"];

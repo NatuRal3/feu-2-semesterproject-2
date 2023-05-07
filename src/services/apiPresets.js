@@ -16,7 +16,8 @@ const userListings = `auction/profiles/${userInfo().userName}?_listings=true`;
 export const apiUserListingsLink = `${apiLink}${userListings}`;
 
 // USER CREDITS
-const userCredits = "auction/profiles/{name}/credits";
+const userCredits = "auction/profiles";
+export const apiUserCreditsLink = `${apiLink}${userCredits}`;
 
 //LOGIN
 const userLogin = "auction/auth/login";
@@ -39,5 +40,5 @@ const deleteListing = "auction/listings/";
 export const apiDeleteListingLink = `${apiLink}${deleteListing}`;
 
 // POST BID
-const postBid = "/auction/listings/{id}/bids}";
-export const apiPostBid = `${apiLink}${postBid}`;
+const postBid = "auction/listings";
+export const apiPostBidLink = `${apiLink}${postBid}`;

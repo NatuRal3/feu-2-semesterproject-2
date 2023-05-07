@@ -23,6 +23,7 @@ function Login() {
               userAccessToken: data.accessToken,
             })
           );
+          window.location.href = "/listings";
         })
         .catch((error) => {
           switch (error.status) {

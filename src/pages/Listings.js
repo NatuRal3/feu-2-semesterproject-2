@@ -13,7 +13,13 @@ function Listings() {
     fetchData();
   }, []);
 
-  return <CardsGrid listings={listings} />;
+  return (
+    <div className="container-listings flex center-items">
+      <div className="content-listings">
+        <CardsGrid listings={listings} />;
+      </div>
+    </div>
+  );
 }
 
 export default Listings;

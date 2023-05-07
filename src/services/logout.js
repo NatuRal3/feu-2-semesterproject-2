@@ -1,5 +1,5 @@
-function removeLocalStorage() {
-  localStorage.clear();
-}
+// function removeLocalStorage() {
+//   localStorage.clear();
+// }
 
-export default removeLocalStorage;
+// export default removeLocalStorage;

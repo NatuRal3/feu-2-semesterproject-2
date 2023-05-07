@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { getListing, placeBid } from "../services/apiEngine";
-
+import { getListing, updateUserCredits } from "../services/apiEngine";
 import List from "../components/List";
-import Buttons from "../components/Buttons";
-import Forms from "../components/FormGroup";
+import { Button, Form } from "react-bootstrap";
+import FormGroup from "../components/FormGroup";
+import validateForm from "../tools/validateForm";
+import { updateBid } from "../services/apiEngine";
 
 function ListingPage() {
   const { listingId } = useParams();
@@ -18,8 +19,9 @@ function ListingPage() {
       setListing(data);
       updateBids(data);
     }
+
     fetchData();
-  }, [listingId]);
+  }, []);
 
   useEffect(() => {
     if (listing) {
@@ -33,13 +35,32 @@ function ListingPage() {
 
   const updateBids = (data) => {
     if (data) {
-      const highestBid = Math.max(...data.bids.map((bid) => bid.amount));
-      setHighestBid(highestBid);
-
       const highLowBids = [...data.bids].sort((a, b) => b.amount - a.amount);
+
+      const value = [...highLowBids].shift();
+
+      setHighestBid(value?.amount || 0);
+
       setListing((pListing) => {
         return { ...pListing, bids: highLowBids };
       });
+    }
+  };
+
+  const submitBid = (event) => {
+    event.preventDefault();
+    const formData = validateForm(event.currentTarget);
+
+    if (formData) {
+      const bid = parseInt(formData.bid);
+      updateBid(listingId, bid)
+        .then((data) => {
+          updateUserCredits();
+          console.log("Success", data);
+        })
+        .catch((error) => {
+          console.log("Error", error);
+        });
     }
   };
 
@@ -61,12 +82,20 @@ function ListingPage() {
           </div>
           <div className="flex row">
             <p>Bids: {listing._count.bids}</p>
-            <p>Highest bid: {highestBid}</p>
+            <p>Highest bid: {highestBid === 0 ? "No bids yet" : highestBid}</p>
           </div>
-          {/* <form>
-            <Forms controlId="formPostBid" type="number" placeholder="place a bid" />
-            <Buttons text="BID" type="submit" onClick={() => placeBid(listing.id)} />
-          </form> */}
+
+          <Form onSubmit={submitBid}>
+            <FormGroup
+              required={true}
+              label="Bid"
+              name="bid"
+              type="number"
+              placeholder="Enter bid"
+              min={highestBid + 1}
+            />
+            <Button type="submit">Bid</Button>
+          </Form>
         </div>
         <div>
           {listing.bids.reverse().map((bid) => (

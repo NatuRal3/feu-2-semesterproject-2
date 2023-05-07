@@ -12,6 +12,7 @@ function FormGroup(props) {
         placeholder={props.placeholder}
         pattern={props.pattern}
         name={props.name}
+        min={props.min}
       />
     </Form.Group>
   );

@@ -3,8 +3,11 @@ import FormGroup from "../components/FormGroup";
 import { registerListing } from "../services/apiEngine";
 import { Form, Button } from "react-bootstrap";
 import validateForm from "../tools/validateForm";
+import { useNavigate } from "react-router-dom";
 
-function newListing() {
+function NewListing() {
+  const navigate = useNavigate();
+
   const submit = async (event) => {
     event.preventDefault();
     const formData = validateForm(event.currentTarget);
@@ -12,6 +15,7 @@ function newListing() {
       registerListing(formData.title, formData.description, formData.endsAt, formData.media)
         .then((data) => {
           console.log(data);
+          navigate(`/listing/${data.id}`);
         })
         .catch((error) => {
           console.log("ERROR:", error);
@@ -53,4 +57,4 @@ function newListing() {
   );
 }
 
-export default newListing;
+export default NewListing;
