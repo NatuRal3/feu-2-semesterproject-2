@@ -17,7 +17,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build && copy .\\src_redirects .\\build_redirects",
+    "build": "react-scripts build && cp .\\src_redirects .\\build_redirects",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
