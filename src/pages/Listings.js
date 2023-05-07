@@ -37,7 +37,7 @@ function Listings() {
   }, [searchTerm, originalListings]);
   return (
     <div className="container-listings flex center-items column">
-      <InputGroup size="sm" className="mb-3">
+      <InputGroup size="sm" className="mb-3 search">
         <InputGroup.Text id="inputGroup-sizing-sm">Search</InputGroup.Text>
         <Form.Control
           aria-label="Small"
